@@ -1,0 +1,43 @@
+ date: function (date) {
+        //var today = new Date();
+        //var dd = today.getDate();
+        //var mm = today.getMonth() + 1; //January is 0!
+        //var yyyy = today.getFullYear();
+        //var temp = dd + "/" + mm + "/" + yyyy;
+        //var arrayLimited = date.split("/", 3);
+        //if(arrayLimited[0])
+
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        mm -= 1;
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        
+        var today = mm + '-' + dd + '-' + yyyy;
+        var minDate = Date.parse(today);
+        mm += 1;
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        dd += 1;
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        var today = mm + '-' + dd + '-' + yyyy;
+        var maxDate = Date.parse(today);
+
+
+        var valueEntered = Date.parse(date);
+        if (valueEntered < minDate || valueEntered > maxDate) {
+            return false;
+        }
+        return true;
+    },
